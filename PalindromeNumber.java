@@ -18,7 +18,11 @@ public class PalindromeNumber {
         }
     }
 
-    private PalindromeNumber(int value) {
+    public PalindromeNumber() {
+
+    }
+
+    public PalindromeNumber(int value) {
         Node newNode = new Node(value);
         head = newNode;
         tail = newNode;
@@ -62,26 +66,6 @@ public class PalindromeNumber {
         }
     }
 
-    public boolean isPalindrome1(int x) {
-        if (length <= 1) {
-            return true;
-        }
-
-        Node frontNode = head;
-        Node backNode = head;
-
-        for (int i = 0; i < length / 2; i++) {
-            if (frontNode.value != backNode.value) {
-                return false;
-            }
-
-            frontNode = frontNode.next;
-            backNode = backNode.next;
-        }
-
-        return true;
-    }
-
     public boolean isPalindrome(int x) {
         if (x < 0) {
             return false;
@@ -102,5 +86,22 @@ public class PalindromeNumber {
         }
 
         return true;
+    }
+
+    public static void main(String[] agrs) {
+        PalindromeNumber solution = new PalindromeNumber();
+
+        System.out.println("Test 1: isPalindrome(121) = " + solution.isPalindrome(121));
+        System.out.println("Test 2: isPalindrome(1221) = " + solution.isPalindrome(1221));
+        System.out.println("Test 3: isPalindrome(123) = " + solution.isPalindrome(123));
+        System.out.println("Test 4: isPalindrome(-121) = " + solution.isPalindrome(-121));
+        System.out.println("Test 5: isPalisndrome(7) = " + solution.isPalindrome(7));
+        System.out.println("Test 6: isPalindrome(0) = " + solution.isPalindrome(0));
+        System.out.println("Test 7: isPalindrome(10) = " + solution.isPalindrome(10));
+        System.out.println("Test 8: isPalindrome(12321) = " + solution.isPalindrome(12321));
+        System.out.println("Test 9: isPalindrome(12345) = " + solution.isPalindrome(12345));
+        System.out.println("Test 10: isPalindrome(9) = " + solution.isPalindrome(9));
+        System.out.println("Test 11: isPalindrome(11) = " + solution.isPalindrome(11));
+        System.out.println("Test 12: isPalindrome(12) = " + solution.isPalindrome(21));
     }
 }
