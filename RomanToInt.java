@@ -27,7 +27,7 @@ public class RomanToInt {
         return result;
     }
 
-    public static void mian(String[] args) {
+    public static void main(String[] args) {
         RomanToInt solution = new RomanToInt();
 
         String[] testCases = { "III", "LVIII", "MCMXC", "IV", "IX", "XL", "XC", "CD", "CM" };
