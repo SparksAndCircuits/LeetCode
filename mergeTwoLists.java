@@ -73,23 +73,23 @@ public class mergeTwoLists {
         return head;
     }
 
-public static void main(String[] args) {
+    public static void main(String[] args) {
         mergeTwoLists merger = new mergeTwoLists();
-        
+
         // Create two sorted lists: [1, 2, 4] and [1, 3, 4]
-        Node list1 = merger.createList(new int[]{1, 2, 4});
-        Node list2 = merger.createList(new int[]{1, 3, 4});
-        
+        Node list1 = merger.createList(new int[] { 1, 2, 4 });
+        Node list2 = merger.createList(new int[] { 1, 3, 4 });
+
         System.out.println("List 1:");
         merger.printlist(list1);
-        
+
         System.out.println("List 2:");
         merger.printlist(list2);
-        
+
         // Merge the lists
         Node merged = merger.mergeTwoLists(list1, list2);
-        
+
         System.out.println("Merged list:");
-        System.out.println(merged);
+        System.out.println(merged );
     }
 }
