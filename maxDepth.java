@@ -55,4 +55,21 @@ public class maxDepth {
 
         return depth;
     }
+
+    public static void main(String[] args) {
+        maxDepth solution = new maxDepth();
+
+        TreeNode test1 = null;
+        System.out.println("Test 1: " + solution.maxDepth(test1));
+
+        TreeNode test2 = solution.new TreeNode(1);
+        System.out.println("Test 2: " + solution.maxDepth(test2));
+
+        TreeNode test3 = solution.new TreeNode(3);
+        test3.left = solution.new TreeNode(9);
+        test3.right = solution.new TreeNode(20);
+        test3.right.left = solution.new TreeNode(15);
+        test3.right.right = solution.new TreeNode(7);
+        System.out.println("Test 3: " + solution.maxDepth(test3));
+    }
 }
