@@ -27,26 +27,26 @@ public class isBalanced {
         return checkHeight(root) != -1;
     }
 
-    private int checkHeight(TreeNode node){
-        if(node == null){
+    private int checkHeight(TreeNode node) {
+        if (node == null) {
             return 0;
         }
 
         int leftHeight = checkHeight(node.left);
 
-        if(leftHeight == -1){
+        if (leftHeight == -1) {
             return -1;
         }
 
         int rightHeight = checkHeight(node.right);
-        if(rightHeight == -1){
+        if (rightHeight == -1) {
             return -1;
         }
 
         return Math.max(leftHeight, rightHeight) + 1;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         isBalanced sol = new isBalanced();
 
         TreeNode root1 = new TreeNode(3);
@@ -54,5 +54,7 @@ public class isBalanced {
         root1.right = new TreeNode(20);
         root1.right.left = new TreeNode(15);
         root1.right.right = new TreeNode(7);
+
+        System.out.println(sol.isBalanced(root1));
     }
 }
