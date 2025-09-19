@@ -14,35 +14,45 @@ public class MergeTwoLists {
     public ListNode tail;
     public int size;
 
-    public class ListNode{
+    public static class ListNode {
         int val;
         ListNode next;
-        ListNode(){}
-        ListNode(int val){
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
             this.val = val;
         }
-        ListNode(int val, ListNode next){
+
+        ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
         }
     }
 
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2){
-        ListNode node = new ListNode();
-        ListNode tempNode = head;
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
 
-        for(int i = 0; i < list1.size; i++){
-            for(int j = 0; j < list2.size; j++){
-                if(list1.val < list2.val){
-                    tempNode = head;
-                    head = node;
-                }else if(list2.val < list1.val){
-                    tempNode = head;
-                    head = node;
-                }
+        while (list1 != null && list2 != null) {
+            if (list1.val <= list2.val) {
+                current.next = list1;
+                list1 = list1.next;
+            } else {
+                current.next = list2;
+                list2 = list2.next;
             }
+
+            current = current.next;
         }
 
-        return head;
+        if (list1 != null) {
+            current.next = list1;
+        } else {
+            current.next = list2;
+        }
+
+        return dummy.next;
     }
 }
