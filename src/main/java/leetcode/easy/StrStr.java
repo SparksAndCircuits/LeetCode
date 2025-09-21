@@ -8,18 +8,27 @@ package leetcode.easy;
 import java.util.ArrayList;
 
 public class StrStr {
-    public int strStr(String hayStack, String needle){
-        ArrayList<String> temp = new ArrayList<String>();
-        temp.add(hayStack);
-        for(int i = 0; i < temp.size(); i++){
-            String result = temp.get(i);
-            if(result == needle){
+    public int strStr(String hayStack, String needle) {
+        if (needle.isEmpty()) {
+            return 0;
+        }
+        
+        if (hayStack.length() < needle.length()) {
+            return -1;
+        }
+        
+        for (int i = 0; i <= hayStack.length() - needle.length(); i++) {
+            int j = 0;
+            // Check character by character
+            while (j < needle.length() && hayStack.charAt(i + j) == needle.charAt(j)) {
+                j++;
+            }
+            // If we matched all characters in needle
+            if (j == needle.length()) {
                 return i;
-            }else if(needle != result){
-                return -1;
             }
         }
-
-        return 0;
+        
+        return -1;
     }
 }
