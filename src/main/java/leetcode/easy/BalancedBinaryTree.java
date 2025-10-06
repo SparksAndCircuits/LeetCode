@@ -13,31 +13,33 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BalancedBinaryTree {
-    public boolean isBalanced(TreeNode root){
-        if(root == null){
-            return false;
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
         }
 
-        return BBTHeight(root.left, root.right);
+        return checkHeight(root) != -1;
     }
 
-    private boolean BBTHeight(TreeNode left, TreeNode right){
-        if(left == null || right == null){
-            return false;
+    private int checkHeight(TreeNode node) {
+        if (node == null) {
+            return 0;
         }
 
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
-
-        while(!queue.isEmpty()){
-            if(left != null){
-                queue.add(left);
-            }
-
-            if(right != null){
-                queue.add(right);
-            }
+        int leftHeight = checkHeight(node.left);
+        if (leftHeight == -1) {
+            return -1;
         }
 
-        return BBTHeight(left, right);
+        int rightHeight = checkHeight(node.right);
+        if (rightHeight == -1) {
+            return -1;
+        }
+
+        if (Math.abs(leftHeight - rightHeight) > 1) {
+            return -1;
+        }
+
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 }
