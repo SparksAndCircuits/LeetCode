@@ -17,31 +17,32 @@ import java.util.Queue;
  */
 
 public class HasPathSum {
-    public boolean hasPathSum(TreeNode root, int targetSum){
-        if(root == null){
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if (root == null) {
             return false;
         }
 
-        int temp = 0;
+        Queue<TreeNode> nodes = new LinkedList<>();
+        Queue<Integer> sums = new LinkedList<>();
+        nodes.add(root);
+        sums.add(root.val);
 
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        while (!nodes.isEmpty()) {
+            TreeNode node = nodes.poll();
+            int currentSum = sums.poll();
 
-        while(!queue.isEmpty()){
-            TreeNode node = queue.remove();
+            if (node.left == null && node.right == null && currentSum == targetSum) {
+                return true;
+            }
 
-            for(int i = 0; i < queue.size(); i++){
-                if(node.left != null){
-                    temp = node.left.val;
-                }
+            if (node.left != null) {
+                nodes.add(node.left);
+                sums.add(currentSum + node.left.val);
+            }
 
-                if(node.right != null){
-                    temp = node.right.val;
-                }
-
-                if(temp == targetSum){
-                    return true;
-                }
+            if (node.right != null) {
+                nodes.add(node.right);
+                sums.add(currentSum + node.right.val);
             }
         }
 
