@@ -3,15 +3,6 @@ package leetcode.easy;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-}
 
 public class MinDepthTest {
     private final MinDepth solution = new MinDepth();
