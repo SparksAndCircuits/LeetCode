@@ -26,6 +26,8 @@ public class RomanToInt {
         int n = s.length();
 
         for (int i = 0; i < n; i++) {
+            int current = romanMap.get(s.charAt(i));
+
             if (i < n - 1 && romanMap.get(s.charAt(i)) < romanMap.get(s.charAt(i + 1))) {
                 total -= romanMap.get(s.charAt(i));
             } else {
