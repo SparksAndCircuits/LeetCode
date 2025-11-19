@@ -85,3 +85,7 @@ Analyze time/space complexity
 Identify bottlenecks
 Consider alternative approaches
 Balance readability vs performance
+
+## Development environment
+
+This project targets Java 21 (LTS). Ensure you have JDK 21 installed and your MAVEN_OPTS/JAVA_HOME set accordingly before building or running tests.
